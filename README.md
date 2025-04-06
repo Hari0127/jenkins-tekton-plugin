@@ -1,4 +1,3 @@
-# jenkins-tekton-plugin
 # Jenkins-Tekton Plugin
 
 ![Build](https://img.shields.io/badge/build-passing-brightgreen)
@@ -43,6 +42,8 @@ It is intended to simplify DevOps workflows for users looking to adopt Tekton wh
 
 ## Architecture
 
+> Architecture Diagram (View with Mermaid-enabled Markdown renderer)
+
 ```mermaid
 flowchart TD
     A[Jenkins UI] --> B[Plugin Frontend]
@@ -51,33 +52,28 @@ flowchart TD
     D --> E[Pipeline Execution]
     E --> F[Results to Plugin Backend]
     F --> A
+```
 
----
+⚙️ Features
+✅ Jenkins build step to invoke a Tekton PipelineRun
 
-## ⚙️ Features
+✅ Custom configuration UI for Tekton API server details
 
-- ✅ Jenkins build step to invoke a Tekton PipelineRun
-- ✅ Custom configuration UI for Tekton API server details
-- ✅ Status dashboard for pipeline runs
-- 🔄 Webhook listener for real-time Tekton pipeline updates (WIP)
-- 🔜 Integration with Jenkins Blue Ocean for visual insights
+✅ Status dashboard for pipeline runs
 
----
+🔄 Webhook listener for real-time Tekton pipeline updates (WIP)
+
+🔜 Integration with Jenkins Blue Ocean for visual insights
 
 CI/CD Setup
+This plugin uses GitHub Actions for Continuous Integration.
 
-This plugin uses GitHub Actions for continuous integration.
+Every push and pull request to main runs a Maven build.
 
-All commits are tested for build and linting.
+Linting and compatibility checks are included using Jenkins test harness.
 
-Plugin compatibility is verified using Jenkins test harness.
+GitHub Actions Workflow Snippet:
 
-To contribute, fork the repo and raise a pull request after local testing.
-
-yaml
-Copy
-Edit
-# .github/workflows/ci.yml
 name: CI
 
 on:
@@ -94,33 +90,30 @@ jobs:
       - name: Build with Maven
         run: mvn clean install
 Usage
-Install the plugin in Jenkins (instructions coming soon).
+🚧 Installation instructions are under development.
 
-Navigate to Jenkins → Tekton Pipelines.
+Install the plugin (upload .hpi once it's built).
 
-Configure your Kubernetes credentials.
+Go to Jenkins → Tekton Pipelines.
 
-Choose the pipeline and click Run.
+Add your Kubernetes credentials in Jenkins settings.
 
-Monitor logs and results from the Jenkins UI.
+Choose a pipeline and click Run.
+
+Monitor logs and results in real-time from Jenkins UI.
 
 Contributing
 We welcome contributions! ✨
+
 If you’re interested in helping build this plugin:
 
-Fork the repo
+Fork the repo.
 
-Work on an issue (check the good first issue tag)
+Work on an issue (check the good first issue tag).
 
-Submit a PR and tag a reviewer
+Submit a PR and tag a reviewer.
 
 Please follow the Contributor Guidelines (coming soon).
 
 License
 This project is licensed under the MIT License.
-
-yaml
-Copy
-Edit
-
----
